@@ -1,38 +1,22 @@
 <!DOCTYPE html>
-<html lang="en"
-head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,intial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-    <script defer src="js/script.js"></script>
-    <title>Tic Tac Toe Game using HTML CSS & JS</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Tic Tac Toe</h1>
-        <div id="gameboard">
-          <div class="box" id="0">X</div>
-         <div class="box" id="1">O</div>
-         <div class="box" id="2">X</div>
-         <div class="box" id="3">O</div>
-         <div class="box" id="4"></div>
-         <div class="box" id="5"></div>
-         <div class="box" id="6"></div>
-         <div class="box" id="7"></div>
-         <div class="box" id="8"></div>  
-         
-         <div class="modal">
-            <div class="content">
-                <h2 class="message">Congratulation Player X</h2>
-                <p>You've Won the Game :</p>
-                <button id="restartbtn">Restart</button>
-            </div>
-         </div>
+    <div id="startScreen">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz6mqeUwjVFP2Tu_XpmI2Ec290_Nund4qTRg&s" alt="Start Game" class="start-image">
+        <button class="start-btn" onclick="startGame()">Start Game</button>
     </div>
-   </div>
- </body>
+
+    <div id="gameScreen">
+        <div class="board" id="board"></div>
+        <div class="result" id="result"></div>
+        <button class="reset-btn" onclick="resetGame()">Play Again</button>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>

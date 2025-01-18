@@ -1,100 +1,125 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700& display=swap");
-
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --orangeColor: #f2c14e;
-    --darkColor: #2d414b;
-}
 
 body {
-    background: rgb(61, 99, 218);
-    background: radial-gradient(
-        circle,
-        rgba(61, 99, 218, 1) 0%
-        rgba(214, 84, 207, 1) 55%
-        rgba(151, 156, 203, 1) 100%
-    );
-    font-family: "poppins", sans-serif;
-    overflow-x: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    overflow: hidden;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+#startScreen, #gameScreen {
+    display: none;
     flex-direction: column;
-}
-
-.container h1 {
-    font-size: 3.5rem;
-    color: #fff
-}
-
-#gameboard {
-    width: 620px;
-    padding: 2rem 5rem;
-    display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
+    text-align: center;
+    animation: fadeIn 0.8s ease forwards;
 }
 
-.box {
-    height: 130px;
-    width: 130px;
+#startScreen {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--orangeColor);
-    background-color: var(--darkColor);
-    font-weight: 600;
-    font-size: 5.5rem;
-    margin: 0.5rem;
-    box-shadow: 2px 5px 5px #000;
-    border-radius: 5px;
 }
 
-.modal {
-    position: absolute;
-    width: 650px;
-    height: 400px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 5px 10px 10px #000;
-}
-
-
-.content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-}
-
-.content h2 {
-    font-size: 2.5rem;
-}
-
-button {
-    outline: none;
+.start-btn {
+    background: #ff6b6b;
+    color: white;
+    padding: 15px 30px;
     border: none;
-    padding: 0.8rem 4rem;
-    margin-top: 2rem;
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 1.2rem;
-    width: 320px;
+    border-radius: 30px;
+    font-size: 1.5rem;
     cursor: pointer;
-    background-attachment: var(--orangeColor);
-    color: var(--darkColor);
-    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+}
+
+.start-image {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+#gameScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.cell {
+    background: white;
+    border: 2px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.cell:hover {
+    background: #f1f1f1;
+}
+
+.cell.occupied {
+    pointer-events: none;
+    color: #666;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.reset-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.reset-btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 480px) {
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .cell {
+        font-size: 2rem;
+    }
+
+    .start-btn {
+        font-size: 1.2rem;
+    }
+
+    .reset-btn {
+        font-size: 1rem;
+    }
 }
